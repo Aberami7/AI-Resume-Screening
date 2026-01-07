@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Screening</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box-container">
+    <h1>AI Resume Screening</h1>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <p>Drag & Drop PDF here or click Browse</p>
+        <button id="browseBtn">Browse</button>
+        <input type="file" id="resumeInput" accept=".pdf">
+        <small>Max 5MB, PDF only</small>
+    </div>
+
+    <!-- Status -->
+    <div class="status-section">
+        <p id="statusText">Waiting for upload...</p>
+        <div class="loader" id="loader" style="display:none;"></div>
+    </div>
+
+    <!-- Result -->
+    <div class="result-section">
+        <div class="score-circle" id="score">--%</div>
+        <p id="resultStatus">--</p>
+
+        <button id="viewBtn" onclick="viewDetails()" disabled>
+            View Details
+        </button>
+    </div>
+
+    <!-- Actions -->
+    <div class="action-buttons">
+        <button id="resetBtn">Upload Another Resume</button>
+        <button id="backBtn">Back</button>
+    </div>
+</div>
+
+<script>
+const browseBtn = document.getElementById("browseBtn");
+const resumeInput = document.getElementById("resumeInput");
+const statusText = document.getElementById("statusText");
+const loader = document.getElementById("loader");
+const score = document.getElementById("score");
+const resultStatus = document.getElementById("resultStatus");
+const resetBtn = document.getElementById("resetBtn");
+const viewBtn = document.getElementById("viewBtn");
+const backBtn = document.getElementById("backBtn");
+
+browseBtn.addEventListener("click", () => resumeInput.click());
+resumeInput.addEventListener("change", analyzeResume);
+
+async function analyzeResume() {
+
+    const file = resumeInput.files[0];
+    if (!file) return;
+
+    // ✅ PDF validation
+    if (file.type !== "application/pdf") {
+        statusText.innerText = "❌ Please upload a valid PDF resume";
+        resumeInput.value = "";
+        return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+        statusText.innerText = "❌ PDF must be under 5MB";
+        resumeInput.value = "";
+        return;
+    }
+
+    localStorage.removeItem("resumeResult");
+    viewBtn.disabled = true;
+
+    statusText.innerText = "Analyzing resume...";
+    loader.style.display = "block";
+    score.innerText = "--%";
+    resultStatus.innerText = "--";
+
+    const formData = new FormData();
+    formData.append("resume", file);
+
+    try {
+        const res = await fetch("http://localhost:8080/api/analyzeResume", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await res.json();
+        loader.style.display = "none";
+
+        // ❌ Backend rejected resume
+        if (!res.ok || !data || data.score === undefined) {
+            statusText.innerText = "❌ Invalid resume or unreadable PDF";
+            score.innerText = "0%";
+            resultStatus.innerText = "Failed";
+            return;
+        }
+
+        // ✅ Success
+        statusText.innerText = "Analysis Complete";
+        score.innerText = data.score + "%";
+        resultStatus.innerText = data.status;
+
+        localStorage.setItem("resumeResult", JSON.stringify(data));
+        viewBtn.disabled = false;
+
+    } catch (err) {
+        loader.style.display = "none";
+        statusText.innerText = "❌ Server not running (start Spring Boot)";
+        console.error(err);
+    }
+}
+
+// Reset
+resetBtn.addEventListener("click", () => {
+    resumeInput.value = "";
+    score.innerText = "--%";
+    resultStatus.innerText = "--";
+    statusText.innerText = "Waiting for upload...";
+    loader.style.display = "none";
+    viewBtn.disabled = true;
+    localStorage.removeItem("resumeResult");
+});
+
+// View details
+function viewDetails() {
+    if (!localStorage.getItem("resumeResult")) {
+        alert("Please upload and analyze a resume first");
+        return;
+    }
+    window.location.href = "view.html";
+}
+
+// Back
+backBtn.addEventListener("click", () => {
+    window.location.href = "home.html";
+});
+</script>
+
+</body>
+</html>

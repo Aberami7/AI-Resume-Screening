@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="box-container" id="content"></div>
+
+<script>
+const raw = localStorage.getItem("resumeResult");
+const container = document.getElementById("content");
+
+if (!raw) {
+    container.innerHTML = `
+        <h2>No Resume Found</h2>
+        <p>Please analyze a resume first.</p>
+        <button onclick="goBack()">Back</button>
+    `;
+} else {
+    const data = JSON.parse(raw);
+
+    const score = Number.isInteger(data.score) ? data.score : 0;
+    const status = data.status || "Failed";
+    const skills = Array.isArray(data.matchedSkills) ? data.matchedSkills : [];
+    const suggestions = Array.isArray(data.suggestions) && data.suggestions.length
+        ? data.suggestions
+        : getFallback(score);
+
+    container.innerHTML = `
+        <h2>Resume Analysis Report</h2>
+
+        <!-- SCORE -->
+        <div class="result-section">
+            <div class="score-circle">${score}%</div>
+            <p>${status}</p>
+        </div>
+
+        <!-- SKILLS -->
+        <h3>Matched Skills</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+            ${
+                skills.length
+                ? skills.map(s => `
+                    <span style="
+                        padding:8px 14px;
+                        border-radius:20px;
+                        background:rgba(255,255,255,0.15);
+                        font-size:14px;
+                    ">${s}</span>`).join("")
+                : `<p>No strong skill match</p>`
+            }
+        </div>
+
+        <!-- SUGGESTIONS -->
+        <h3 style="margin-top:20px;">ATS Suggestions</h3>
+        <div style="text-align:left; max-width:600px; margin:auto;">
+            ${
+                suggestions.map(s => `
+                    <div style="
+                        background:rgba(255,255,255,0.08);
+                        padding:12px 15px;
+                        border-radius:10px;
+                        margin-bottom:10px;
+                    ">• ${s}</div>
+                `).join("")
+            }
+        </div>
+
+        <button onclick="goBack()">Back</button>
+    `;
+}
+
+function getFallback(score) {
+    if (score >= 80) {
+        return [
+            "Excellent ATS compatibility",
+            "Add measurable achievements",
+            "Customize resume for job roles"
+        ];
+    }
+    if (score >= 50) {
+        return [
+            "Use more job-specific keywords",
+            "Improve formatting clarity",
+            "Highlight projects clearly"
+        ];
+    }
+    return [
+        "Avoid tables and graphics",
+        "Use ATS-friendly keywords",
+        "Add measurable results"
+    ];
+}
+
+function goBack() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
