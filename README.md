@@ -4,6 +4,7 @@ An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a
 
 
  Demo Preview:
+ 
 <img width="1920" height="1020" alt="Screenshot 2026-01-07 102431" src="https://github.com/user-attachments/assets/fcb5a276-2993-42c2-801e-c2cdc648002d" />
 
 
@@ -23,7 +24,7 @@ try {
     return dummyResult(); // fallback response for demo
 }
 
- Features:
+Features:
 
 Resume Upload & Parsing: Accepts PDF resumes.
 
