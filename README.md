@@ -16,22 +16,21 @@ Screenshots show the complete resume upload, analysis, and report generation wor
 
 Flow:
 
->>Resume Upload
-
+Resume Upload:
 Drag & drop PDF or use the Browse button.Max file size: 5MB, PDF only.Clean, intuitive UI for quick uploads.
 
->>Analysis Status
+Analysis Status:
 Shows real-time analysis progress.Displays completion status once done.
 
->>Score & Rating
+Score & Rating:
 ATS-style shortlisting score (e.g., 82%).Simple rating description: Good / Average / Poor.
 Visual emphasis on score for easy interpretation.
 
->>View Detailed Report
+View Detailed Report:
 Lists Matched Skills automatically extracted from the resume.
 Shows ATS Suggestions for improvements, such as: Adding more real-world projects,Using ATS-friendly keywords,Including measurable achievements.
 
->>Navigation & Actions
+Navigation & Actions:
 Buttons for View Details, Upload Another Resume, and Back.Easy navigation between upload and detailed report screens.
 
  How It Works:
