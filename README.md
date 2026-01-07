@@ -14,6 +14,26 @@ An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a
 
 Screenshots show the complete resume upload, analysis, and report generation workflow.
 
+Flow:
+
+>>Resume Upload
+
+Drag & drop PDF or use the Browse button.Max file size: 5MB, PDF only.Clean, intuitive UI for quick uploads.
+
+>>Analysis Status
+Shows real-time analysis progress.Displays completion status once done.
+
+>>Score & Rating
+ATS-style shortlisting score (e.g., 82%).Simple rating description: Good / Average / Poor.
+Visual emphasis on score for easy interpretation.
+
+>>View Detailed Report
+Lists Matched Skills automatically extracted from the resume.
+Shows ATS Suggestions for improvements, such as: Adding more real-world projects,Using ATS-friendly keywords,Including measurable achievements.
+
+>>Navigation & Actions
+Buttons for View Details, Upload Another Resume, and Back.Easy navigation between upload and detailed report screens.
+
  How It Works:
 
 The system integrates with the OpenAI API to analyze resume content, match skills with job requirements, and calculate a scoring metric. For demo or testing purposes, a dummy fallback response is used to simulate AI output when API credits are limited. In production, it seamlessly switches to real AI analysis.
