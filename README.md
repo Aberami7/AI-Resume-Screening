@@ -1,4 +1,4 @@
-                                       AI Resume Screening System
+                                          AI Resume Screening System
 
 
 An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a shortlisting score, identifies matched skills, and provides personalized improvement suggestions. This project demonstrates how modern recruitment platforms automatically evaluate candidates and streamline hiring.
@@ -12,32 +12,26 @@ An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a
 
 <img width="1902" height="903" alt="Screenshot 2026-02-21 180558" src="https://github.com/user-attachments/assets/ddc42d4f-2a17-433e-a112-f87a419dc9d9" />
 
-
 Screenshots show the complete resume upload, analysis, and report generation workflow.
 
 Flow:
 
-*Resume Upload:
+--> Resume Upload:
+      Drag & drop PDF or use the Browse button.Max file size: 5MB, PDF only.Clean, intuitive UI for quick uploads.
 
-Drag & drop PDF or use the Browse button.Max file size: 5MB, PDF only.Clean, intuitive UI for quick uploads.
+--> Analysis Status:
+      Shows real-time analysis progress.Displays completion status once done.
 
-*Analysis Status:
+--> Score & Rating:
+      ATS-style shortlisting score (e.g., 82%).Simple rating description: Good / Average / Poor.
+      Visual emphasis on score for easy interpretation.
 
-Shows real-time analysis progress.Displays completion status once done.
+--> View Detailed Report:
+      Lists Matched Skills automatically extracted from the resume.
+      Shows ATS Suggestions for improvements, such as: Adding more real-world projects,Using ATS-friendly keywords,Including measurable achievements.
 
-*Score & Rating:
-
-ATS-style shortlisting score (e.g., 82%).Simple rating description: Good / Average / Poor.
-Visual emphasis on score for easy interpretation.
-
-*View Detailed Report:
-
-Lists Matched Skills automatically extracted from the resume.
-Shows ATS Suggestions for improvements, such as: Adding more real-world projects,Using ATS-friendly keywords,Including measurable achievements.
-
-*Navigation & Actions:
-
-Buttons for View Details, Upload Another Resume, and Back.Easy navigation between upload and detailed report screens.
+--> Navigation & Actions:
+          Buttons for View Details, Upload Another Resume, and Back.Easy navigation between upload and detailed report screens.
 
 How It Works:
 
