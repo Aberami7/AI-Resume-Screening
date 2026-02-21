@@ -1,16 +1,16 @@
-AI Resume Screening System
+                                   AI Resume Screening System
 
 An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a shortlisting score, identifies matched skills, and provides personalized improvement suggestions. This project demonstrates how modern recruitment platforms automatically evaluate candidates and streamline hiring.
 
 
  Demo Preview:
  
-<img width="1920" height="1020" alt="Screenshot 2026-01-07 102431" src="https://github.com/user-attachments/assets/fcb5a276-2993-42c2-801e-c2cdc648002d" />
+<img width="1902" height="913" alt="Screenshot 2026-02-21 180308" src="https://github.com/user-attachments/assets/de101c00-01a0-47d3-9c4d-6570be41598c" />
 
+<img width="1898" height="905" alt="Screenshot 2026-02-21 180547" src="https://github.com/user-attachments/assets/865adc11-3b42-4189-8b9a-75cc11bd3b76" />
 
-<img width="1920" height="1020" alt="Screenshot 2026-01-07 102506" src="https://github.com/user-attachments/assets/a97e170c-77b3-4223-93e4-f32ad54d2a26" />
+<img width="1902" height="903" alt="Screenshot 2026-02-21 180558" src="https://github.com/user-attachments/assets/ddc42d4f-2a17-433e-a112-f87a419dc9d9" />
 
-<img width="1920" height="1020" alt="Screenshot 2026-01-07 102523" src="https://github.com/user-attachments/assets/1fb9cfac-d92a-444e-b4d0-5dc60a4385ef" />
 
 Screenshots show the complete resume upload, analysis, and report generation workflow.
 
