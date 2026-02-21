@@ -1,4 +1,4 @@
-                                          AI Resume Screening System
+                                                     AI Resume Screening System
 
 
 An AI-powered ATS (Applicant Tracking System) that analyzes resumes, generates a shortlisting score, identifies matched skills, and provides personalized improvement suggestions. This project demonstrates how modern recruitment platforms automatically evaluate candidates and streamline hiring.
@@ -64,5 +64,4 @@ Features:
 
 
 
-.
 
